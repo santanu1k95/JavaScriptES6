@@ -1,11 +1,32 @@
-const myfunction= (i_am_boolean,callback)=>{
+const myfunction= (i_am_boolean,someName)=>{
     setTimeout(()=>{
         if(i_am_boolean){
-            callback("I am done waiting 3 secs")
+            someName("I am done waiting 3 secs",null)
+        }else{
+            someName("error")
         }
     },3000)
 }
 
-myfunction(true,(str)=>{
-    console.log(str)
+myfunction(false,(str,error)=>{
+    if(!error){
+        console.log(str)
+        console.log(error)
+    }
+    else{
+        console.log(str)
+        console.log(error)
+    }
+})
+
+myfunction(true,(str,error)=>{
+    if(!error){
+        console.log(str)
+        console.log(error)
+    }
+    else{
+        console.log(error)
+        console.log(str)
+        
+    }
 })
